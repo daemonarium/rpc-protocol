@@ -1,0 +1,9 @@
+rpc-protocol
+Copyright (c) 2026 Magowie Sp. z o.o.
+
+This repository is an original specification. It does not bundle
+compiler, library, or test-framework source.
+
+The normative vectors were produced by daemonarium/rpc-cpp and checked
+by daemonarium/rpc-ts. Those repositories are separate works under the
+same copyright.

@@ -1,0 +1,8 @@
+flowchart TB
+  app[Application]
+  rpc[RPC and stream messages]
+  frame[Socket framing]
+  value[Value format]
+  prim[Primitives]
+  transport[Transport]
+  app --> rpc --> frame --> value --> prim --> transport

@@ -1,0 +1,20 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install -g markdownlint-cli
+      - run: markdownlint '**/*.md' --config .markdownlint.json
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress '**/*.md'
+          fail: true

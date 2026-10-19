@@ -1,0 +1,22 @@
+stateDiagram-v2
+  [*] --> idle
+  idle --> loading: subscribe
+  loading --> ready: stream_done
+  ready --> reloading: stream_reset
+  loading --> reloading: stream_reset
+  reloading --> ready: stream_done
+  loading --> error: stream_error
+  ready --> error: stream_error
+  reloading --> error: stream_error
+  error --> loading: stream_item
+  error --> reloading: stream_reset
+  loading --> idle: last unsubscribe
+  ready --> idle: last unsubscribe
+  reloading --> idle: last unsubscribe
+  error --> idle: last unsubscribe
+  idle --> closed: kill
+  loading --> closed: kill
+  ready --> closed: kill
+  reloading --> closed: kill
+  error --> closed: kill
+  closed --> [*]
